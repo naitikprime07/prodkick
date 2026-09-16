@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir /s /b)",
+      "Bash(test -f \"d:\\New-Web\\prodkick\\site\\package-lock.json\")",
+      "Bash(test -f \"d:\\New-Web\\prodkick\\package.json\")",
+      "Bash(tree /F /A)",
+      "Bash(mkdir -p assets/css assets/images assets/fonts assets/js)",
+      "Bash(mv \"assets/prodkick.com/assets/css/style.css\" \"assets/css/style.css\")",
+      "Bash(mv \"assets/fonts.googleapis.com/css2__1c2e3737.bin\" \"assets/css/google-fonts.css\")",
+      "Bash(cp -r \"assets/fonts.gstatic.com/s/inter/v20/\"*.woff2 \"assets/fonts/\")",
+      "Bash(chmod +x \"d:\\New-Web\\prodkick\\rename-images.sh\")",
+      "Bash(bash \"d:\\New-Web\\prodkick\\rename-images.sh\")",
+      "Bash(chmod +x \"d:\\New-Web\\prodkick\\update-asset-paths.sh\")",
+      "Bash(bash \"d:\\New-Web\\prodkick\\update-asset-paths.sh\")",
+      "Bash(find . -name \"*.html\" -type f -exec sed -i 's|/assets/image\\.pollinations\\.ai/prompt/[^\"\"\"\"]*|PLACEHOLDER|g' {})",
+      "Bash(npm install)",
+      "Bash(npm run build)",
+      "Bash(npm run dev)",
+      "Bash(cat site/package.json)",
+      "Bash(cat site/vite.config.js)",
+      "Bash(cat site/index.html)",
+      "Bash(cat site/quiz.html)",
+      "Bash(cat site/about.html)",
+      "Bash(test -f site/assets/images/quiz/modern-quiz-interface-with-colorful-question-marks-and-brain-illustration.jpg)",
+      "Bash(cat site/dist/index.html)",
+      "Bash(find site -name \"*.html\" -not -path \"*/dist/*\" -not -path \"*/node_modules/*\" -exec sed -i '/<link rel=\"\"apple-touch-icon\"\"/d; /<link rel=\"\"icon\"\" type=\"\"image\\/png\"\"/d' {} ;)",
+      "Bash(for file in site/*.html)",
+      "Bash(do sed -i '/<link rel=\"\"apple-touch-icon\"\"/d; /<link rel=\"\"icon\"\" type=\"\"image\\/png\"\"/d' \"$file\")",
+      "Bash(done)",
+      "Bash(for file in site/blog/*.html)",
+      "Bash(find site/quiz-play.html -name \"index.html\" -exec sed -i '/<link rel=\"\"apple-touch-icon\"\"/d; /<link rel=\"\"icon\"\" type=\"\"image\\/png\"\"/d' {} ;)",
+      "Bash(cp site/assets/images/icons/prodkick.png site/assets/images/prodkick-logo.png)",
+      "Bash(sed -i 's|<div class=\"\"nav-logo\"\">.*</div>|<div class=\"\"nav-logo\"\">\\n                    <a href=\"\"/\"\" class=\"\"logo-link\"\">\\n                        <img src=\"\"/assets/images/prodkick-logo.png\"\" alt=\"\"Prodkick\"\" class=\"\"logo-image\"\">\\n                    </a>\\n                </div>|' site/index.html)",
+      "Bash(find site -maxdepth 1 -name \"*.html\" -exec perl -i -0pe 's|<div class=\"\"nav-logo\"\">.*?<h1>prodkick</h1>.*?</div>|<div class=\"\"nav-logo\"\">\\n                    <a href=\"\"/\"\" class=\"\"logo-link\"\">\\n                        <img src=\"\"/assets/images/prodkick-logo.png\"\" alt=\"\"Prodkick\"\" class=\"\"logo-image\"\">\\n                    </a>\\n                </div>|gs' {} ;)",
+      "Bash(for file in site/quiz.html site/about.html site/blog.html site/contact.html site/privacy.html site/terms.html)",
+      "Bash(do perl -i -0pe 's|<div class=\"\"nav-logo\"\">.*?<h1>prodkick</h1>.*?</div>|<div class=\"\"nav-logo\"\">\\n                    <a href=\"\"/\"\" class=\"\"logo-link\"\">\\n                        <img src=\"\"/assets/images/prodkick-logo.png\"\" alt=\"\"Prodkick\"\" class=\"\"logo-image\"\">\\n                    </a>\\n                </div>|gs' \"$file\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
